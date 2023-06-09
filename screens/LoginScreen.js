@@ -7,10 +7,14 @@ import ButtonComponent from "../components/Button";
 
 import { loginApi } from "../api/user";
 
+import useAuth from "../context/useAuth";
+
 const LoginScreen = () => {
+  const { getUser } = useAuth();
   const loginHandle = async (values) => {
     const result = (await loginApi(values.email, values.password)).data;
     console.log(result);
+    await getUser(result.token);
   };
   return (
     <View style={styles.loginContainer}>
