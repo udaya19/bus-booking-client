@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, Image, View, ScrollView, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import useAuth from "../context/useAuth";
+
+import HeaderImages from "../components/HeaderImages";
 
 const BusSearchScreen = ({ navigation }) => {
   const { logOut } = useAuth();
@@ -10,41 +12,11 @@ const BusSearchScreen = ({ navigation }) => {
   };
   return (
     <View>
-      <ScrollView horizontal>
-        <View style={styles.imageContainer}>
-          <Image
-            source={require("../assets/vizag.jpeg")}
-            style={styles.image}
-          />
-          <Image
-            source={require("../assets/vizag.jpeg")}
-            style={styles.image}
-          />
-          <Image
-            source={require("../assets/vizag.jpeg")}
-            style={styles.image}
-          />
-          <Image
-            source={require("../assets/vizag.jpeg")}
-            style={styles.image}
-          />
-        </View>
-      </ScrollView>
+      <HeaderImages />
     </View>
   );
 };
 
 export default BusSearchScreen;
 
-const styles = StyleSheet.create({
-  imageContainer: {
-    flexDirection: "row",
-    gap: 10,
-    padding: 10,
-  },
-  image: {
-    height: 300,
-    width: "150%",
-    borderRadius: 10,
-  },
-});
+const styles = StyleSheet.create({});
