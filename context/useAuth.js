@@ -3,7 +3,7 @@ import jwtDecode from "jwt-decode";
 
 import AuthContext from "./context";
 
-import { setToken } from "../storage/storage";
+import { removeToken, setToken } from "../storage/storage";
 
 const useAuth = () => {
   const { setUser } = useContext(AuthContext);
@@ -13,7 +13,13 @@ const useAuth = () => {
     setUser(userProfile);
     console.log("User profile:", userProfile);
   };
-  return { getUser };
+
+  const logOut = async () => {
+    await removeToken();
+    setUser(null);
+  };
+
+  return { getUser, logOut };
 };
 
 export default useAuth;
