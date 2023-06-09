@@ -5,9 +5,12 @@ import { Formik } from "formik";
 import TextInputComponent from "../components/TextInput";
 import ButtonComponent from "../components/Button";
 
+import { loginApi } from "../api/user";
+
 const LoginScreen = () => {
-  const loginHandle = (values) => {
-    console.log(values);
+  const loginHandle = async (values) => {
+    const result = (await loginApi(values.email, values.password)).data;
+    console.log(result);
   };
   return (
     <View style={styles.loginContainer}>

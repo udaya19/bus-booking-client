@@ -14,6 +14,7 @@ const TextInputComponent = ({
       value={value}
       placeholder={placeholder}
       autoCorrect={false}
+      autoCapitalize="none"
       {...otherProps}
     />
   );
