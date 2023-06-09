@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
 import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/HomeScreen";
+
+import AppNavigation from "./navigation/AppNavigation";
 
 import AuthContext from "./context/context";
 
 import getLoggedInUser from "./context/auth";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -20,9 +22,11 @@ export default function App() {
   }, []);
   return (
     <AuthContext.Provider value={{ user, setUser }}>
-      <SafeAreaView style={styles.container}>
-        {user ? <HomeScreen /> : <LoginScreen />}
-      </SafeAreaView>
+      <NavigationContainer>
+        <SafeAreaView style={styles.container}>
+          {user ? <AppNavigation /> : <LoginScreen />}
+        </SafeAreaView>
+      </NavigationContainer>
     </AuthContext.Provider>
   );
 }

@@ -3,18 +3,19 @@ import { StyleSheet, Text, View } from "react-native";
 
 import useAuth from "../context/useAuth";
 
-const HomeScreen = () => {
+const BusSearchScreen = ({ navigation }) => {
   const { logOut } = useAuth();
   const handleLogOut = async () => {
     await logOut();
   };
   return (
     <View>
-      <Text onPress={handleLogOut}>HomeScreen</Text>
+      <Text onPress={handleLogOut}>BusSearchScreen</Text>
+      <Text onPress={() => navigation.navigate("busesList")}>Search</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default BusSearchScreen;
 
 const styles = StyleSheet.create({});
