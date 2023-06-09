@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
     padding: 10,
+    marginBottom: 20,
   },
   image: {
     height: 300,

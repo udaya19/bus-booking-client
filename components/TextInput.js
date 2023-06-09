@@ -5,11 +5,13 @@ const TextInputComponent = ({
   onChangeText,
   value,
   placeholder,
+  width,
+  paddingLeft,
   ...otherProps
 }) => {
   return (
     <TextInput
-      style={styles.input}
+      style={[styles.input, { width, paddingLeft }]}
       onChangeText={onChangeText}
       value={value}
       placeholder={placeholder}
@@ -30,6 +32,5 @@ const styles = StyleSheet.create({
     borderColor: "black",
     marginBottom: 20,
     borderRadius: 20,
-    width: "90%",
   },
 });
