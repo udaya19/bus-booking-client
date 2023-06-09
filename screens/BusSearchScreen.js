@@ -1,18 +1,12 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 
-import useAuth from "../context/useAuth";
-
 import HeaderImages from "../components/HeaderImages";
 import FromToInputBox from "../components/FromToInputBox";
 import DatePicker from "../components/DatePicker";
 import ButtonComponent from "../components/Button";
 
 const BusSearchScreen = ({ navigation }) => {
-  const { logOut } = useAuth();
-  const handleLogOut = async () => {
-    await logOut();
-  };
   return (
     <View>
       <HeaderImages />

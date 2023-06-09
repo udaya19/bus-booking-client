@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import HomeNavigation from "./HomeNavigation";
+import ProfileNavigation from "./ProfileNavigation";
 
 import color from "../data/color";
 
@@ -25,6 +26,19 @@ const AppNavigation = () => {
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
                 name="select-search"
+                size={25}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileNavigation}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <MaterialCommunityIcons
+                name="face-man-profile"
                 size={25}
                 color={color}
               />
