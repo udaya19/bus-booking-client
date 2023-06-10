@@ -6,7 +6,14 @@ import color from "../data/color";
 
 import TextInputComponent from "./TextInput";
 
-const FromToInputBox = ({ iconName, placeholder, width, keyboardType }) => {
+const FromToInputBox = ({
+  iconName,
+  placeholder,
+  width,
+  keyboardType,
+  value,
+  handleChange,
+}) => {
   return (
     <View style={styles.journeyFromTo}>
       <MaterialCommunityIcons
@@ -20,6 +27,8 @@ const FromToInputBox = ({ iconName, placeholder, width, keyboardType }) => {
         width={width}
         paddingLeft={35}
         keyboardType={keyboardType}
+        value={value}
+        onChangeText={handleChange}
       />
     </View>
   );
