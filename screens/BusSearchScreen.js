@@ -7,11 +7,18 @@ import FromToInputBox from "../components/FromToInputBox";
 import DatePicker from "../components/DatePicker";
 import ButtonComponent from "../components/Button";
 
+import { getBusesAPI } from "../api/buses";
+
 const BusSearchScreen = ({ navigation }) => {
   const [dateOfJouney, setDateOfJourney] = useState(new Date());
   const handleDateChange = (event, selectedDate) => {
     const currentDate = selectedDate || dateOfJourney;
     setDateOfJourney(currentDate);
+  };
+  const handleSubmit = async (values) => {
+    const result = (await getBusesAPI(values.from, values.to)).data;
+    console.log("Buses:", result);
+    navigation.navigate("busesList", { result });
   };
   return (
     <View>
@@ -23,7 +30,7 @@ const BusSearchScreen = ({ navigation }) => {
             to: "",
             numOfPassengers: "",
           }}
-          onSubmit={(values) => console.log({ ...values, dateOfJouney })}
+          onSubmit={(values) => handleSubmit(values)}
         >
           {({ values, handleChange, handleSubmit }) => (
             <>
