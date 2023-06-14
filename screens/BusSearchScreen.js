@@ -18,7 +18,10 @@ const BusSearchScreen = ({ navigation }) => {
   const handleSubmit = async (values) => {
     const result = (await getBusesAPI(values.from, values.to)).data;
     console.log("Buses:", result);
-    navigation.navigate("busesList", { result: result.service });
+    navigation.navigate("busesList", {
+      result: result.service,
+      numOfPassengers: values.numOfPassengers,
+    });
   };
   return (
     <View>
